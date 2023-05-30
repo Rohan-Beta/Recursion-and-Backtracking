@@ -4,6 +4,21 @@ import java.util.*;
 
 class Firstclass {
 
+    public static void printSolution(int arr[][]) {
+
+        for (int i = 0; i < 4; i++) {
+            for (int j = 0; j < 4; j++) {
+                if(arr[i][j] == 1) {
+                    System.out.print("Q ");
+                }
+                else {
+                    System.out.print(". ");
+                }
+            }
+            System.out.print("\n");
+        }
+    }
+
     public static boolean isSafe(int arr[][] , int x , int y , int n) {
         // x for rows , y for columns , n = number of queens
 
@@ -69,13 +84,7 @@ class Firstclass {
 
         
         if(nQueen(arr, 0, 0, n)) {
-
-            for(int i = 0; i < n; i += 1) {
-                for(int j = 0; j < n; j += 1) {
-                    System.out.print(arr[i][j] + " ");
-                }
-                System.out.print("\n");
-            }
+            printSolution(arr);
         }
     }
 }
