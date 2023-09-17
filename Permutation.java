@@ -1,25 +1,24 @@
-// keypad combination
+// Permutation
 
 import java.util.*;
 
-class Firstclass {
-    public static String[] keypad = {"." , "abc" , "def" , "ghi" , "jkl" , "mno" , "pqr" , "stu" , "vwx" , "yz"};
-
-    public static void keyComb(String str , int idx , String comb) {
-
-        if(idx == str.length()) {
-            System.out.print(comb + "\n");
+class firstclass {
+    public static void Permutation(String str , String perm) {
+        if(str.length() == 0) {
+            System.out.print(perm + "\n");
             return;
         }
-        char currChr = str.charAt(idx);
 
-        String mapping = keypad[currChr - '0'];
+        for(int i = 0; i < str.length(); i += 1) {
+            char currchr = str.charAt(i);
 
-        for(int i = 0; i < mapping.length(); i += 1) {
-            keyComb(str, idx+1, comb+mapping.charAt(i));
+            String newstr = str.substring(0, i) + str.substring(i+1);
+            Permutation(newstr, perm+currchr);
         }
     }
     public static void main(String args[]) {
-        keyComb("23", 0, "");
+        Permutation("abc", " ");
     }
 }
+// number of input equals to number of factorial
+// i.e "abc" = 3!
